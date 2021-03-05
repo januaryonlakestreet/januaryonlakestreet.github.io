@@ -1,85 +1,105 @@
-<!DOCTYPE html>
-<html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<html xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;600;900&display=swap" rel="stylesheet">
 <script>
 
-var RepoDescriptions = [];
-var RepoLangs = [];
 
-var AllRepos =[];
-var RepoImportant = [];
-
-var ValidLangTags = ["Html","C++","C#","Game Maker Language"]
-
-   function RepoData(name,desc,created,Updated,url,languages){
-   this.RepoName = name;
-   this.RepoDesc = desc;
-   this.RepoCreatedOn = created;
-   this.repoLastUpdated = Updated;
-   this.repoUrl = url;
-   this.RepoLanguages = languages
-   }
-
-var FailText = "No description found";
-
-$.ajax({
-    url: "https://api.github.com/users/januaryonlakestreet/repos",
-    context: document.body,
-    success: function (result) {
-    
-	  AllRepos = result;
-	showdata();   
-}})
+var PausedSlideShow = false;
+var CurrentID = 0;
 
 
-function showdata(){
-var text ="";
-var  i;
 
 
-for(i = 0; i  < AllRepos.length; i++){
-text += "<div id = project>";
-text += "<P id= projectTitle>" + AllRepos[i].name + "</P><br>";
-text += "<textarea id= projectDesc>" + RepoDescriptions[i] + "</textarea><br>";
-text += "<P id= projectStartDate>Project Started on " + AllRepos[i].CreatedOn + "</p><P id= projectLastUpdate>Project last updated on " + AllRepos[i].repoLastUpdated + "</p> <br>";
+function ChangeSlideShow()
+{
+if(!PausedSlideShow){
 
-text += "<br><a role=button id= projectUrl href="+AllRepos[i].repoUrl+">Project github link</a><br>";
-text += "</div>";
+      ClearSlideShow();
+	  document.getElementById(slideId[CurrentID]).style.display = "block";	
+	 ActiveDiv = document.getElementById(slideId[CurrentID]);
+	 GameDetailsDiv = document.getElementById("GameDetails");
+	
+	
+	
+	
+	  if(CurrentID + 1 == slideId.length)
+	  {
+	 CurrentID = 0;
+	  }else{
+	   
+	  CurrentID++;
+	  	
+	  }
+}
+
 
 }
 
-document.getElementById("Data").innerHTML = text;
 
-}
 
+var AllGames = [];
+
+
+var Game = {Title:"Mine rush",
+Engine:"Unreal engine", 
+Desc:"Mine rush was developed over the course of one accademic year as part of the junior component of the junior/senior collaberative games module at staffordshire university."+
+" "+ 
+"The game is a side on couch co-op game for up to 4 players, whom each take the role of a gold rush era america style prospector ",
+img1name:"Background4_1.png",
+img2name:"",
+MyRole:" my role",
+DownloadLink:"link"};
+
+var Game1 = {Title:"A study in secrecy",
+Engine:"Unreal engine",
+Desc:"white",
+MyRole:" my role",
+DownloadLink:"link"};
+
+var Game2 = {Title:"Tanks A lot",
+Engine:"Unreal engine", 
+Desc:"Tanks-A-Lot is a party game in which the players control small cartoon-style tanks in various gamemodes including Capture the Flag, Deathmatch, and others. "+
+"This project was completed over a small two week prototyping period and then a seven week stretch for finalisation.",
+MyRole:" my role",
+DownloadLink:"link"};
+
+var Game3 = {Title:"turn based prototype",
+Engine:"Unity", 
+Desc:"white",
+MyRole:" my role",
+DownloadLink:"link"};
+
+var Game4 = {Title:"Mobile roguelike prototype",
+Engine:"Unity", 
+Desc:"white",
+MyRole:" my role",
+DownloadLink:"link"};
+
+	AllGames.push(Game);
+	AllGames.push(Game1);
+		AllGames.push(Game3);
+	AllGames.push(Game2);
+	
+	AllGames.push(Game4);
+	
 </script>
-<style>
-p#projectStartDate{
- float:left;
-}
 
-p#projectLastUpdate{
-  float:right;
-  margin-right:60%;
-}
-a#projectUrl {
- border-radius: 5px;
-    background: gainsboro;
-    padding: .5em;
-    text-decoration: none;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 15px;
-}
-</style>
+<div  id="BackGround1">
+<img id="Backgroundimg" src="cool-background.png">
+<div class="header">
+	<div class="headerContent">
+		<p id="title"> Gameplay programming and Game Design.</p>
+	<p id="Subtitle">and general dot net development</p>
 
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+		<p id="IntroText">My name is Olly Hixon-Fisher. i'm a creative and technically capable professional with experience in <span id="GDesign">Game Design</span>, <span id="Gprogram">Gameplay programming</span> in <span id="csharp">c#</span> and <span id="cplus">c++</span>, <span id="script">Scripting</span> as well as general <span id="dotnet">dot net programming</span></p>
+		</div>
+</div>
+	<div id="ContentBar">
 
-<p id="Data"></p>
-</body>
+	</div>
+</div>
+
+</div>
 </html>

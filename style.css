@@ -1,0 +1,65 @@
+
+
+
+img#Backgroundimg{
+	Width:100%;
+	height:100%;
+}
+body{
+	margin:0px;
+}
+
+.header{
+top:50%;
+bottom:50%;
+position:absolute;
+margin-left:25%;
+}
+
+p#IntroText{
+width: 50%;
+    padding-left: 116px;
+    font-family: 'HeadingFont';
+}
+p#Subtitle{
+font-family:HeadingFont;
+margin-top:-30px;
+margin-left:40%;
+}
+p#title{
+font-family:HeadingFont;
+font-size:32px;
+width:100%;
+}
+@font-face {
+  font-family: HeadingFont;
+  src: url(joystix.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: subHeadingFont;
+  src: url(joystix.ttf);
+  
+}
+span{
+padding:2px
+}
+
+span#GDesign {
+    background: yellow;
+}
+span#Gprogram {
+    background: yellow;
+}
+span#csharp {
+    background: yellow;
+}
+span#cplus {
+    background: yellow;
+}
+span#script{
+background:yellow;
+}
+span#dotnet{
+background:yellow;
+}

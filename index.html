@@ -1,105 +1,232 @@
-<html xmlns="http://www.w3.org/1999/html">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;600;900&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filters-projects button');
+    const projects = document.querySelectorAll('.project-item');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            projects.forEach(project => {
+                 if (filter === 'all' || project.classList.contains(filter)) {
+                    project.classList.remove('hidden');
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filters-games button');
+    const projects = document.querySelectorAll('.project-games-item');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            projects.forEach(project => {
+                if (filter === 'all' || project.classList.contains(filter)) {
+                    project.classList.remove('hidden');
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
 
 
-var PausedSlideShow = false;
-var CurrentID = 0;
-
-
-
-
-function ChangeSlideShow()
-{
-if(!PausedSlideShow){
-
-      ClearSlideShow();
-	  document.getElementById(slideId[CurrentID]).style.display = "block";	
-	 ActiveDiv = document.getElementById(slideId[CurrentID]);
-	 GameDetailsDiv = document.getElementById("GameDetails");
-	
-	
-	
-	
-	  if(CurrentID + 1 == slideId.length)
-	  {
-	 CurrentID = 0;
-	  }else{
-	   
-	  CurrentID++;
-	  	
-	  }
-}
-
-
-}
-
-
-
-var AllGames = [];
-
-
-var Game = {Title:"Mine rush",
-Engine:"Unreal engine", 
-Desc:"Mine rush was developed over the course of one accademic year as part of the junior component of the junior/senior collaberative games module at staffordshire university."+
-" "+ 
-"The game is a side on couch co-op game for up to 4 players, whom each take the role of a gold rush era america style prospector ",
-img1name:"Background4_1.png",
-img2name:"",
-MyRole:" my role",
-DownloadLink:"link"};
-
-var Game1 = {Title:"A study in secrecy",
-Engine:"Unreal engine",
-Desc:"white",
-MyRole:" my role",
-DownloadLink:"link"};
-
-var Game2 = {Title:"Tanks A lot",
-Engine:"Unreal engine", 
-Desc:"Tanks-A-Lot is a party game in which the players control small cartoon-style tanks in various gamemodes including Capture the Flag, Deathmatch, and others. "+
-"This project was completed over a small two week prototyping period and then a seven week stretch for finalisation.",
-MyRole:" my role",
-DownloadLink:"link"};
-
-var Game3 = {Title:"turn based prototype",
-Engine:"Unity", 
-Desc:"white",
-MyRole:" my role",
-DownloadLink:"link"};
-
-var Game4 = {Title:"Mobile roguelike prototype",
-Engine:"Unity", 
-Desc:"white",
-MyRole:" my role",
-DownloadLink:"link"};
-
-	AllGames.push(Game);
-	AllGames.push(Game1);
-		AllGames.push(Game3);
-	AllGames.push(Game2);
-	
-	AllGames.push(Game4);
-	
 </script>
+<body>
+    <header>
+        <div class="container">
+            <h1>Olly Hixon-Fisher</h1>
+            <p>Machine Learning Researcher | Gameplay programmer</p>
+  
+            <p>Email: jane.doe@example.com | GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+            <p></p>
+        </div>
+    </header>
 
-<div  id="BackGround1">
-<img id="Backgroundimg" src="cool-background.png">
-<div class="header">
-	<div class="headerContent">
-		<p id="title"> Gameplay programming and Game Design.</p>
-	<p id="Subtitle">and general dot net development</p>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-		<p id="IntroText">My name is Olly Hixon-Fisher. i'm a creative and technically capable professional with experience in <span id="GDesign">Game Design</span>, <span id="Gprogram">Gameplay programming</span> in <span id="csharp">c#</span> and <span id="cplus">c++</span>, <span id="script">general game engine scripting</span> as well as general <span id="dotnet">.net programming</span></p>
-		</div>
-</div>
-	<div id="ContentBar">
+    <main>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>
+                I am an academic specializing in machine learning and artificial intelligence, 
+                with a focus on generative models, reinforcement learning, and graph neural networks.
+            </p>
+        </section>
 
-	</div>
-</div>
+        <section id="research" class="container">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Generative Models (e.g., VAEs, GANs)</li>
+                <li>Reinforcement Learning and Decision-Making</li>
+                <li>Graph Neural Networks</li>
+                <li>Applications of ML in Healthcare</li>
+            </ul>
+        </section>
 
-</div>
+        <section id="projects" class="container">
+            <h2>Projects</h2>
+            <div class="filters-projects">
+                <button data-filter="all">All</button>
+                <button data-filter="ml">Machine Learning</button>
+                <button data-filter="rl">Reinforcement Learning</button>
+                <button data-filter="gnn">Graph Neural Networks</button>
+            </div>
+            <div class="project-list">
+                <div class="project-item ml">
+                    <h3>VAE for Multi-Modal Data</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+                <div class="project-item rl">
+                    <h3>RL Environment Design</h3>
+                    <p>Custom Gym environment for multi-agent interactions.</p>
+                    <a href="https://github.com/username/rl-env" target="_blank">GitHub</a>
+                </div>
+                <div class="project-item gnn">
+                    <h3>Simple GNN for Node Classification</h3>
+                    <p>A minimal graph neural network for academic purposes.</p>
+                    <a href="https://github.com/username/gnn-project" target="_blank">GitHub</a>
+                </div>
+		<div class="project-item gnn">
+                    <h3>Simple GNN for Node Classification</h3>
+                    <p>A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.</p>
+                    <a href="https://github.com/username/gnn-project" target="_blank">GitHub</a>
+                </div>
+		<div class="project-item gnn">
+                    <h3>Simple GNN for Node Classification</h3>
+                    <p>A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.</p>
+                    <a href="https://github.com/username/gnn-project" target="_blank">GitHub</a>
+                </div>
+<div class="project-item gnn">
+                    <h3>Simple GNN for Node Classification</h3>
+                    <p>A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.</p>
+                    <a href="https://github.com/username/gnn-project" target="_blank">GitHub</a>
+                </div>
+<div class="project-item gnn">
+                    <h3>Simple GNN for Node Classification</h3>
+                    <p>A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.A minimal graph neural network for academic purposes.</p>
+                    <a href="https://github.com/username/gnn-project" target="_blank">GitHub</a>
+                </div>
+
+                <!-- Add more projects here -->
+            </div>
+        </section>
+
+      <section id="projects-games" class="container">
+            <h2>Projects</h2>
+            <div class="filters-games">
+                <button data-filter="all">All</button>
+                <button data-filter="unity">Unity</button>
+                <button data-filter="blueprints">Blueprints</button>
+                <button data-filter="c++">C++</button>
+            </div>
+            <div class="project-games-list">
+                <div class="project-games-item unity">
+                    <h3>DunGan</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">Research paper</a>
+
+                </div>
+		<div class="project-games-item unity">
+                    <h3>multiplayer shooter</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+		<div class="project-games-item unity">
+                    <h3>simple save and load</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+	
+              	 <div class="project-games-item blueprints project-bg-mr">
+                    <h3>Mine Rush</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
+
+                </div>
+ <div class="project-games-item blueprints project-bg-ss">
+                    <h3>A study in secrecy</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+    		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
+
+                </div>
+
+ <div class="project-games-item blueprints project-bg-tnk">
+                    <h3>Tanks-A-Lot!</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
+
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Pong</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Snake</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Breakout</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Chess</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Starter project</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+
+
+                <!-- Add more projects here -->
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+          
+     
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Olly Hixon-Fisher | Powered by GitHub Pages</p>
+        </div>
+    </footer>
+    
+</body>
 </html>

@@ -1,65 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav {
+    background: #444;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+section {
+    margin: 20px 0;
+}
+
+.filters {
+    margin: 10px 0;
+}
+.filters-projects {
+    margin: 10px 0;
+}
+.filters-games {
+    margin: 10px 0;
+}
+
+
+.filters button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    min-height: 500px;
+}
+
+.project-item {
+    background: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+
+.project-games-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    min-height: 500px;
+}
+
+.project-games-item {
+    background: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-games-item h3 {
+    margin-top: 0;
+}
+.project-item.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+.project-games-item.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
 
 
 
-img#Backgroundimg{
-	Width:100%;
-	height:100%;
+
+.project-bg-ss {
+    background-image: url('sslogo.png'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    color: #fff; /* Adjust text color for contrast */
+    padding: 20px; /* Add padding to ensure text is readable */
+    border: none; /* Remove border to make it seamless */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
 }
-body{
-	margin:0px;
+.project-bg-ss::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+    z-index: 1;
+}
+.project-bg-ss h3, .project-bg-ss p, .project-bg-ss a {
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
 }
 
-.header{
-top:50%;
-bottom:50%;
-position:absolute;
-margin-left:25%;
+
+.project-bg-mr {
+    background-image: url('EdSplash.bmp'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    color: #fff; /* Adjust text color for contrast */
+    padding: 20px; /* Add padding to ensure text is readable */
+    border: none; /* Remove border to make it seamless */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+.project-bg-mr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+    z-index: 1;
+}
+.project-bg-mr h3, .project-bg-mr p, .project-bg-mr a {
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
 }
 
-p#IntroText{
-width: 50%;
-    padding-left: 116px;
-    font-family: 'HeadingFont';
+
+.project-bg-tnk {
+    background-image: url('Tanks.png'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    color: #fff; /* Adjust text color for contrast */
+    padding: 20px; /* Add padding to ensure text is readable */
+    border: none; /* Remove border to make it seamless */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
 }
-p#Subtitle{
-font-family:HeadingFont;
-margin-top:-30px;
-margin-left:40%;
+.project-bg-tnk::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+    z-index: 1;
 }
-p#title{
-font-family:HeadingFont;
-font-size:32px;
-width:100%;
-}
-@font-face {
-  font-family: HeadingFont;
-  src: url(joystix.ttf);
-  font-weight: bold;
-}
-@font-face {
-  font-family: subHeadingFont;
-  src: url(joystix.ttf);
-  
-}
-span{
-padding:2px
+.project-bg-tnk h3, .project-bg-tnk p, .project-bg-tnk a {
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
 }
 
-span#GDesign {
-    background: yellow;
-}
-span#Gprogram {
-    background: yellow;
-}
-span#csharp {
-    background: yellow;
-}
-span#cplus {
-    background: yellow;
-}
-span#script{
-background:yellow;
-}
-span#dotnet{
-background:yellow;
-}
+

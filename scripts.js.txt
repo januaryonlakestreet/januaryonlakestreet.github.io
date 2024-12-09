@@ -1,0 +1,18 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filters button');
+    const projects = document.querySelectorAll('.project-item');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            projects.forEach(project => {
+                if (filter === 'all' || project.classList.contains(filter)) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        });
+    });
+});

@@ -154,6 +154,7 @@ footer {
 }
 .project-bg-ss h3, .project-bg-ss p, .project-bg-ss a {
     position: relative;
+color:white;
     z-index: 2; /* Ensures text is above the overlay */
 }
 
@@ -181,6 +182,7 @@ footer {
 .project-bg-mr h3, .project-bg-mr p, .project-bg-mr a {
     position: relative;
     z-index: 2; /* Ensures text is above the overlay */
+color:white;
 }
 
 
@@ -207,6 +209,67 @@ footer {
 .project-bg-tnk h3, .project-bg-tnk p, .project-bg-tnk a {
     position: relative;
     z-index: 2; /* Ensures text is above the overlay */
+color:white;
 }
 
 
+.project-bg-unity {
+    background-image: url('unity_general.png'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    color: #fff; /* Adjust text color for contrast */
+    padding: 20px; /* Add padding to ensure text is readable */
+    border: none; /* Remove border to make it seamless */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+.project-bg-unity::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+    z-index: 1;
+}
+.project-bg-unity h3, .project-bg-unity p, .project-bg-unity a {
+    position: relative;
+    z-index: 2; /* Ensures text is above the overlay */
+	color:white;
+}
+
+
+
+        /* Container for all sections */
+        .sections-container hor {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Individual section styling */
+        .container hor{
+            flex: 1;
+            margin: 0 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Section header styling */
+        .container h2 hor {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* List styling */
+        .container ul hor {
+            list-style-type: none;
+        }
+
+        .container li hor {
+            margin-bottom: 10px;
+        }

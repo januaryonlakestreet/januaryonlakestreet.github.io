@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filters-projects button');
+    const projects = document.querySelectorAll('.project-item');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            projects.forEach(project => {
+                 if (filter === 'all' || project.classList.contains(filter)) {
+                    project.classList.remove('hidden');
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filters-games button');
+    const projects = document.querySelectorAll('.project-games-item');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            projects.forEach(project => {
+                if (filter === 'all' || project.classList.contains(filter)) {
+                    project.classList.remove('hidden');
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+
+
+</script>
+<body>
+    <header>
+        <div class="container">
+            <h1>Olly Hixon-Fisher</h1>
+            <p>Machine Learning Researcher | Gameplay programmer</p>
+  
+            <p>Email: jane.doe@example.com | GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+            <p></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>
+                I am an academic specializing in machine learning and artificial intelligence, 
+                with a focus on generative models, reinforcement learning, and graph neural networks.
+            </p>
+        </section>
+
+        <section id="research" class="container hor">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Generative Models (e.g., VAEs, GANs)</li>
+                <li>Reinforcement Learning and Decision-Making</li>
+                <li>Graph Neural Networks</li>
+                <li>Applications of ML in Healthcare</li>
+            </ul>
+        </section>
+    <section id="Qualifications" class="container hor">
+            <h2>Qualifications</h2>
+            <ul>
+                <li>Doctorate from Kingston university, London.</li>
+                <li>Masters from Kinston Unviersity, London</li>
+                <li>Undergraduate from Staffordshire University</li>
+              
+            </ul>
+        </section>
+ <section id="Qualifications" class="container hor" >
+            <h2>Previous experience</h2>
+            <ul>
+                <li>Doctorate from Kingston university, London.</li>
+                <li>Masters from Kinston Unviersity, London</li>
+                <li>Undergraduate from Staffordshire University</li>
+              
+            </ul>
+        </section>
+
+
+
+        <section id="projects" class="container">
+            <h2>Publications</h2>
+            
+
+                <!-- Add more projects here -->
+           
+        </section>
+
+      <section id="projects-games" class="container">
+            <h2>Projects</h2>
+            <div class="filters-games">
+                <button data-filter="all">All</button>
+                <button data-filter="unity">Unity</button>
+                <button data-filter="blueprints">Blueprints</button>
+                <button data-filter="c++">C++</button>
+            </div>
+            <div class="project-games-list">
+                <div class="project-games-item unity project-bg-unity">
+                    <h3>DunGan</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">Research paper</a>
+
+                </div>
+		<div class="project-games-item unity project-bg-unity">
+                    <h3>multiplayer shooter</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+		<div class="project-games-item unity project-bg-unity">
+                    <h3>simple save and load</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+	
+              	 <div class="project-games-item blueprints project-bg-mr">
+                    <h3>Mine Rush</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
+			<div>
+			<p>Tech used</p>
+			</div>
+
+                </div>
+ <div class="project-games-item blueprints project-bg-ss">
+                    <h3>A study in secrecy</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+    		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
+
+                </div>
+
+ <div class="project-games-item blueprints project-bg-tnk">
+                    <h3>Tanks-A-Lot!</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
+
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Pong</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Snake</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Breakout</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Chess</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+ <div class="project-games-item c++">
+                    <h3>Starter project</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+
+<div class="project-games-item other">
+                    <h3>Seed corn</h3>
+                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
+                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
+                </div>
+
+
+
+                <!-- Add more projects here -->
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+          
+     
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Olly Hixon-Fisher | Powered by GitHub Pages</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

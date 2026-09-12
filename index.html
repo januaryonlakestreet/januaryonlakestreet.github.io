@@ -1,221 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Oliver Hixon-Fisher | Machine Learning Researcher</title>
+
+  <meta
+    name="description"
+    content="Oliver Hixon-Fisher — machine learning researcher working on human motion synthesis, sparse pose reconstruction, digital humans and embodied AI."
+  />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #202124;
+      --muted: #5f6368;
+      --border: #e5e7eb;
+      --accent: #2457d6;
+      --soft: #f7f8fa;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2.3rem, 7vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    .intro {
+      max-width: 750px;
+      font-size: 1.08rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-weight: 500;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.96);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .container {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding-top: 13px;
+      padding-bottom: 13px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    main section {
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 22px;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin-bottom: 6px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+
+    .publication {
+      margin-bottom: 28px;
+    }
+
+    .publication-title {
+      font-weight: 650;
+      font-size: 1.03rem;
+    }
+
+    .publication-meta {
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .publication-links {
+      margin-top: 5px;
+      font-size: 0.93rem;
+    }
+
+    .status {
+      display: inline-block;
+      margin-left: 5px;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .timeline-item {
+      margin-bottom: 28px;
+    }
+
+    .timeline-item p {
+      margin-top: 5px;
+    }
+
+    footer {
+      padding: 35px 0 50px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 48px;
+      }
+
+      main section {
+        padding: 40px 0;
+      }
+    }
+  </style>
 </head>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.filters-projects button');
-    const projects = document.querySelectorAll('.project-item');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
-
-            projects.forEach(project => {
-                 if (filter === 'all' || project.classList.contains(filter)) {
-                    project.classList.remove('hidden');
-                } else {
-                    project.classList.add('hidden');
-                }
-            });
-        });
-    });
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.filters-games button');
-    const projects = document.querySelectorAll('.project-games-item');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.dataset.filter;
-
-            projects.forEach(project => {
-                if (filter === 'all' || project.classList.contains(filter)) {
-                    project.classList.remove('hidden');
-                } else {
-                    project.classList.add('hidden');
-                }
-            });
-        });
-    });
-});
-
-
-</script>
 <body>
-    <header>
-        <div class="container">
-            <h1>Olly Hixon-Fisher</h1>
-            <p>Machine Learning Researcher | Gameplay programmer</p>
-  
-            <p>Email: jane.doe@example.com | GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
-            <p></p>
+
+<header>
+  <div class="container">
+
+    <h1>Oliver Hixon-Fisher</h1>
+
+    <p class="subtitle">
+      PhD Researcher in Machine Learning · Kingston University
+    </p>
+
+    <p class="intro">
+      I research generative and reconstructive models of human motion for
+      interactive and embodied systems. My work spans human motion synthesis,
+      sparse-sensor full-body pose reconstruction, diffusion models,
+      self-supervised representation learning, test-time adaptation and
+      real-time digital humans.
+    </p>
+
+    <div class="links">
+      <a
+        class="button"
+        href="Oliver_Hixon-Fisher_Research_CV.pdf"
+        target="_blank"
+      >
+        CV
+      </a>
+
+      <a
+        class="button"
+        href="Oliver_Hixon-Fisher_Publication_List.pdf"
+        target="_blank"
+      >
+        Publications
+      </a>
+
+      <a
+        class="button"
+        href="https://www.linkedin.com/in/olly-hixon-fisher-524754118"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+    </div>
+
+  </div>
+</header>
+
+
+<nav>
+  <div class="container">
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+<main>
+
+  <section id="research">
+    <div class="container">
+
+      <h2>Research</h2>
+
+      <p>
+        My research focuses on computational models that can understand,
+        reconstruct and generate human motion from incomplete or noisy
+        observations.
+      </p>
+
+      <p>
+        During my PhD I have investigated both sides of this problem:
+        generative models that synthesise responsive human motion and
+        reconstruction models that recover full-body motion from sparse
+        consumer sensors. I am particularly interested in bringing these
+        directions together to develop adaptive digital humans that can infer
+        a user's state and generate contextually appropriate behaviour in
+        real time.
+      </p>
+
+      <p>
+        My current work, <em>Sparse2Motion</em>, investigates full-body
+        reconstruction from sparse VR headset and controller measurements
+        using JEPA-based representation learning, adaptive computation and
+        online test-time adaptation. I have also developed a paired
+        VR–motion-capture dataset for studying the domain gap between
+        synthetic sparse observations and measurements from real consumer
+        hardware.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Human Motion</span>
+        <span class="tag">Digital Humans</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Generative Models</span>
+        <span class="tag">Diffusion Models</span>
+        <span class="tag">Virtual Reality</span>
+        <span class="tag">Sparse Pose Reconstruction</span>
+        <span class="tag">JEPA</span>
+        <span class="tag">Test-Time Adaptation</span>
+        <span class="tag">Embodied AI</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="publications">
+    <div class="container">
+
+      <h2>Selected Publications</h2>
+
+
+      <div class="publication">
+        <div class="publication-title">
+          Sparse2Motion: Adaptive Full-Body Pose Reconstruction from VR Inputs
+          <span class="status">Under Review</span>
         </div>
-    </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="publication-meta">
+          Oliver Hixon-Fisher et al.
+          <br />
+          <em>Intelligent Systems with Applications</em>, Elsevier.
         </div>
-    </nav>
 
-    <main>
-        <section id="about" class="container">
-            <h2>About Me</h2>
-            <p>
-                I am an academic specializing in machine learning and artificial intelligence, 
-                with a focus on generative models, reinforcement learning, and graph neural networks.
-            </p>
-        </section>
-
-        <section id="research" class="container hor">
-            <h2>Research Interests</h2>
-            <ul>
-                <li>Generative Models (e.g., VAEs, GANs)</li>
-                <li>Reinforcement Learning and Decision-Making</li>
-                <li>Graph Neural Networks</li>
-                <li>Applications of ML in Healthcare</li>
-            </ul>
-        </section>
-    <section id="Qualifications" class="container hor">
-            <h2>Qualifications</h2>
-            <ul>
-                <li>Doctorate from Kingston university, London.</li>
-                <li>Masters from Kinston Unviersity, London</li>
-                <li>Undergraduate from Staffordshire University</li>
-              
-            </ul>
-        </section>
- <section id="Qualifications" class="container hor" >
-            <h2>Previous experience</h2>
-            <ul>
-                <li>Doctorate from Kingston university, London.</li>
-                <li>Masters from Kinston Unviersity, London</li>
-                <li>Undergraduate from Staffordshire University</li>
-              
-            </ul>
-        </section>
-
-
-
-        <section id="projects" class="container">
-            <h2>Publications</h2>
-            
-
-                <!-- Add more projects here -->
-           
-        </section>
-
-      <section id="projects-games" class="container">
-            <h2>Projects</h2>
-            <div class="filters-games">
-                <button data-filter="all">All</button>
-                <button data-filter="unity">Unity</button>
-                <button data-filter="blueprints">Blueprints</button>
-                <button data-filter="c++">C++</button>
-            </div>
-            <div class="project-games-list">
-                <div class="project-games-item unity project-bg-unity">
-                    <h3>DunGan</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">Research paper</a>
-
-                </div>
-		<div class="project-games-item unity project-bg-unity">
-                    <h3>multiplayer shooter</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
-		<div class="project-games-item unity project-bg-unity">
-                    <h3>simple save and load</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
-	
-              	 <div class="project-games-item blueprints project-bg-mr">
-                    <h3>Mine Rush</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
-			<div>
-			<p>Tech used</p>
-			</div>
-
-                </div>
- <div class="project-games-item blueprints project-bg-ss">
-                    <h3>A study in secrecy</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-    		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
-
-                </div>
-
- <div class="project-games-item blueprints project-bg-tnk">
-                    <h3>Tanks-A-Lot!</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-		    <a style="float:right" href="https://github.com/username/vae-project" target="_blank">download playable demo</a>
-
-                </div>
- <div class="project-games-item c++">
-                    <h3>Pong</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
- <div class="project-games-item c++">
-                    <h3>Snake</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
- <div class="project-games-item c++">
-                    <h3>Breakout</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
- <div class="project-games-item c++">
-                    <h3>Chess</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
- <div class="project-games-item c++">
-                    <h3>Starter project</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
-
-<div class="project-games-item other">
-                    <h3>Seed corn</h3>
-                    <p>A Variational Autoencoder designed for multi-source datasets.</p>
-                    <a href="https://github.com/username/vae-project" target="_blank">GitHub</a>
-                </div>
-
-
-
-                <!-- Add more projects here -->
-            </div>
-        </section>
-
-        <section id="contact" class="container">
-          
-     
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Olly Hixon-Fisher | Powered by GitHub Pages</p>
+        <div class="publication-links">
+          Full-body reconstruction from sparse consumer VR inputs using
+          JEPA-based representation learning, adaptive computation and
+          test-time adaptation.
         </div>
-    </footer>
-    
+      </div>
+
+
+      <div class="publication">
+        <div class="publication-title">
+          Shaking Hands with the Machine — Reactive Motion Synthesis
+          <span class="status">Preprint / Extended Version Under Review</span>
+        </div>
+
+        <div class="publication-meta">
+          Oliver Hixon-Fisher et al.
+          <br />
+          SSRN preprint, 2026. Extended version under review at
+          <em>Sensors</em> (MDPI).
+        </div>
+
+        <div class="publication-links">
+          <a
+            href="https://doi.org/10.2139/ssrn.6876560"
+            target="_blank"
+            rel="noopener"
+          >
+            Preprint
+          </a>
+        </div>
+      </div>
+
+
+      <div class="publication">
+        <div class="publication-title">
+          High-Fiving with the Machine: Synthesising Reactive Motion from
+          Human Input with Interaction Contact Labels
+        </div>
+
+        <div class="publication-meta">
+          Oliver Hixon-Fisher et al.
+          <br />
+          18th ACM SIGGRAPH Conference on Motion, Interaction and Games
+          (MIG 2025), 2025.
+        </div>
+
+        <div class="publication-links">
+          <a
+            href="https://doi.org/10.1145/3769047.3769063"
+            target="_blank"
+            rel="noopener"
+          >
+            DOI
+          </a>
+        </div>
+      </div>
+
+
+      <div class="publication">
+        <div class="publication-title">
+          Motion Synthesis via Adaptive Guidance Experts
+          <span class="status">Accepted / In Press</span>
+        </div>
+
+        <div class="publication-meta">
+          Oliver Hixon-Fisher et al.
+          <br />
+          Springer, <em>Communications in Computer and Information Science</em>,
+          2025.
+        </div>
+      </div>
+
+
+      <div class="publication">
+        <div class="publication-title">
+          Pose-Centric Motion Synthesis Through Adaptive Instance Normalization
+        </div>
+
+        <div class="publication-meta">
+          Oliver Hixon-Fisher et al.
+          <br />
+          VISAPP 2025, pp. 39–47.
+        </div>
+
+        <div class="publication-links">
+          <a
+            href="https://doi.org/10.5220/0013102100003912"
+            target="_blank"
+            rel="noopener"
+          >
+            DOI
+          </a>
+        </div>
+      </div>
+
+
+      <div class="publication">
+        <div class="publication-title">
+          A Combined GAN Approach Towards Procedural Generation in 3D Video
+          Game Level Design
+        </div>
+
+        <div class="publication-meta">
+          Oliver Hixon-Fisher et al.
+          <br />
+          International Conference on Interactive Media, Smart Systems and
+          Emerging Technologies, 2022.
+        </div>
+      </div>
+
+
+      <p>
+        <a
+          href="Oliver_Hixon-Fisher_Publication_List.pdf"
+          target="_blank"
+        >
+          View full publication list →
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+
+  <section id="education">
+    <div class="container">
+
+      <h2>Education</h2>
+
+      <div class="timeline-item">
+        <h3>PhD in Machine Learning</h3>
+
+        <div class="publication-meta">
+          Kingston University, London
+        </div>
+
+        <p>
+          Research focused on generative human motion, reactive motion
+          synthesis, sparse pose reconstruction and adaptive machine learning
+          for digital humans.
+        </p>
+
+        <p>
+          Thesis submission: <strong>19 November 2026</strong><br />
+          Anticipated viva: <strong>Q1 2027</strong>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="container">
+
+      <h2>Contact</h2>
+
+      <p>
+        I am currently exploring postdoctoral opportunities beginning in 2027,
+        particularly in human motion, digital humans, computer vision,
+        computer graphics and embodied AI.
+      </p>
+
+      <p>
+        <a
+          href="https://www.linkedin.com/in/olly-hixon-fisher-524754118"
+          target="_blank"
+          rel="noopener"
+        >
+          linkedin.com/in/olly-hixon-fisher-524754118
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+    © 2026 Oliver Hixon-Fisher
+  </div>
+</footer>
+
 </body>
 </html>
